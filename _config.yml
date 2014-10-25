@@ -1,11 +1,11 @@
 # Site settings
-title: Freelancer
-email: your-email@domain.com
-description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
+title: kiranandjustin
+email: rsvp@kiranandjustin.com
+description: "This is my description"
 
 # Color settings (hex-codes without the leading hash-tag)
 color:
-  primary: 18bc9c #80B3FF
+  primary: 801515 #801515
   secondary: 2c3e50 #FD6E8A
   secondary-dark: 233140 #A2122F
 
