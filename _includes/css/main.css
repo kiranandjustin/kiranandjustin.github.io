@@ -82,7 +82,8 @@ hr.star-primary:after {
 header {
     text-align: center;
     color: #fff;
-    background: #{{ site.color.primary }};
+    background-image: url('../../img/bg.jpg');
+    background-repeat: repeat;
 }
 
 header .container {
@@ -110,8 +111,8 @@ header .intro-text .skills {
 
 @media(min-width:768px) {
     header .container {
-        padding-top: 200px;
-        padding-bottom: 100px;
+        padding-top: 150px;
+        padding-bottom: 30px;
     }
 
     header .intro-text .name {
@@ -147,10 +148,16 @@ header .intro-text .skills {
     }
 }
 
+.img-circular {
+  border-radius: 173px;
+   -webkit-border-radius: 173px;
+   -moz-border-radius: 173px;
+}
+
 .navbar {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .navbar a:focus {
@@ -181,7 +188,9 @@ section h2 {
 
 section.success {
     color: #fff;
-    background: #{{ site.color.primary }};
+    background-image: url('../../img/bg.jpg');
+    background-repeat: repeat;
+    
 }
 
 @media(max-width:767px) {
