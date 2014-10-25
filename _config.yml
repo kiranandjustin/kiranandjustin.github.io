@@ -1,12 +1,12 @@
 # Site settings
-title: kiranandjustin
+title: Kiran And Justin
 email: rsvp@kiranandjustin.com
 description: "This is my description"
 
 # Color settings (hex-codes without the leading hash-tag)
 color:
   primary: 801515 #801515
-  secondary: 2c3e50 #FD6E8A
+  secondary: 2c3e50 #000
   secondary-dark: 233140 #A2122F
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
