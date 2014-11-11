@@ -148,6 +148,20 @@ header .intro-text .skills {
     }
 }
 
+#rsvpForm {
+/*  display: none;*/
+}
+#lookup_info, #firstname, #lastname, #lookup_names {
+  font-size: 1.5em;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+  word-spacing: 2px
+}
+#lookup_rsvp_in, .rsvp_other_diet {
+  font-size: 1.35em;
+  font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+  word-spacing: 2px
+}
+
 .img-circular {
   border-radius: 173px;
    -webkit-border-radius: 173px;
