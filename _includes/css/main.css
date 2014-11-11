@@ -208,6 +208,20 @@ section.success {
     background-repeat: repeat;
     
 }
+.alert.alert-success {
+  background-color: #D8EECE;
+  border: none;
+  color: green;
+  border-radius: 0;
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+}
+.alert.alert-warning {
+  border: none;
+  border-radius: 0;
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+}
 
 @media(max-width:767px) {
     section {

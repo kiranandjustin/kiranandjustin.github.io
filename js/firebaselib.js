@@ -23,7 +23,6 @@ $("#rsvpForm").hide();
 function get_postal(snapshot) {
    snapshot.forEach(function(childSnapshot) {
       var postalcode = childSnapshot.postal_code;
-      console.log("attempt postal: " + postalcode);
       if (postalcode) {
         return postalcode;  
       }
@@ -55,7 +54,6 @@ function get_family() {
       });  
       
       ref.orderByChild("postal_code").equalTo(postalcode).once("value", function(familysnap) {
-        console.log("lookup based on postal: " + familysnap.val());
         $.each( familysnap.val(), function( index, person ) {
           if (person) {
             var formhtml = $.parseHTML(nameForm);
@@ -74,6 +72,12 @@ function get_family() {
   });
 };
 
+$(document).ready(function(){
+    $(".close").click(function(){
+        $(".alert").alert();
+    });
+});
+
 
 // Form function
 function setDietaryList() {
@@ -89,7 +93,7 @@ function setDietaryList() {
    
    
    $('#rsvpForm').submit(function() {
-     console.log('hello world');
+     event.preventDefault();
      // send back to firebase (set params)
      var people_form = $('#rsvpForm #lookup_rsvp_in');
      $.each( people_form, function( index, person ) {
@@ -98,11 +102,10 @@ function setDietaryList() {
        if(othersOption.val() == "other")
         {
             // replace select value with text field value
-            othersOption.val($("#rsvp_other_diet").val());
+            othersOption.val($(person).find('#rsvp_other_diet').val());
         }
         var up_person = new Firebase("https://sweltering-inferno-5630.firebaseio.com/invite_list/" + family[name]);
         if (up_person) {
-          debugger;
           up_person.update({
              "rsvp_wedding":$(person).find('input[name=rsvp_wedding]').is(':checked'),
              "rsvp_reception":$(person).find('input[name=rsvp_reception]').is(':checked'),
@@ -110,10 +113,8 @@ function setDietaryList() {
              "rsvp_complete":true
            });
         }
-        else {
-          console.log('new user');
-        }
-       
      });
+     $().prepend("<div class='alert alert-success' role='alert'>Success</div>");
+    
    });
 };
