@@ -21,13 +21,13 @@ $("#rsvpForm").hide();
 
 
 function get_postal(snapshot) {
-   snapshot.forEach(function(childSnapshot) {
-      var postalcode = childSnapshot.postal_code;
-      if (postalcode) {
-        return postalcode;  
-      }
-      
-    });
+  snapshot.forEach(function(childSnapshot) {
+    var postalcode = childSnapshot.postal_code;
+    if (postalcode) {
+      return postalcode;  
+    }
+    
+  });
 }
 
 var family = [];

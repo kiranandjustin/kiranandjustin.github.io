@@ -1,0 +1,48 @@
+{
+    "invite_list": [
+        {
+            "first_name": "Pratik",
+            "last_name": "Rathod",
+            "full_name": "Pratik Rathod",
+            "postal_code": "L4K5J1",
+            "type": "primary",
+            "rsvp_wedding": false,
+            "rsvp_reception": false,
+            "rsvp_diet": "",
+            "rsvp_complete": false
+        },
+        {
+            "first_name": "Pratik",
+            "last_name": "Rathod",
+            "full_name": "Pratik Rathod",
+            "type": "guest",
+            "postal_code": "L4K5J1",
+            "rsvp_wedding": false,
+            "rsvp_reception": false,
+            "rsvp_diet": "",
+            "rsvp_complete": false
+        },
+        {
+            "first_name": "Shim",
+            "last_name": "Bindra",
+            "full_name": "Shim Bindra",
+            "type": "primary",
+            "postal_code": "M5V3S1",
+            "rsvp_wedding": false,
+            "rsvp_reception": false,
+            "rsvp_diet": "",
+            "rsvp_complete": false
+        },
+        {
+            "first_name": "Manpreet",
+            "last_name": "Kang",
+            "full_name": "Manpreet Kang",
+            "type": "primary",
+            "postal_code": "M5V3S1",
+            "rsvp_wedding": false,
+            "rsvp_reception": false,
+            "rsvp_diet": "",
+            "rsvp_complete": false
+        }
+    ]
+}
