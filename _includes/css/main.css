@@ -151,6 +151,7 @@ header .intro-text .skills {
 #rsvpForm {
 /*  display: none;*/
 }
+
 #lookup_info, #firstname, #lastname, #lookup_names {
   font-size: 1.5em;
   font-family: Copperplate, "Copperplate Gothic Light", fantasy;
@@ -159,7 +160,7 @@ header .intro-text .skills {
 #lookup_rsvp_in, .rsvp_other_diet {
   font-size: 1.35em;
   font-family: Copperplate, "Copperplate Gothic Light", fantasy;
-  word-spacing: 2px
+  word-spacing: 10px
 }
 
 .img-circular {
@@ -194,7 +195,7 @@ header .intro-text .skills {
 }
 
 section {
-    padding: 100px 0;
+    padding: 50px 0;
 }
 
 section h2 {
@@ -217,6 +218,8 @@ section.success {
    -moz-border-radius: 0;
 }
 .alert.alert-warning {
+    background-color: #EFD6D6;
+    color:black;
   border: none;
   border-radius: 0;
    -webkit-border-radius: 0;
@@ -225,7 +228,7 @@ section.success {
 
 @media(max-width:767px) {
     section {
-        padding: 75px 0;
+        padding: 50px 0;
     }
 
     section.first {

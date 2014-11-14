@@ -1,11 +1,12 @@
 var ref = new Firebase("https://sweltering-inferno-5630.firebaseio.com/invite_list");
 
 
+var l = " ";
 var nameForm = "\
 <div id='lookup_rsvp_in'  class='col-xs-12 form-group controls'> \
     <div id='lookup_names'>Pratik Rathod</div>\
-    <input type='checkbox' name='rsvp_wedding' value='rsvp_wedding'>Wedding</input> \
-    <input type='checkbox' name='rsvp_reception' value='rsvp_reception'>Reception</input> \
+    <input type='checkbox' name='rsvp_wedding' data-on-text='Y' data-off-text='N' data-on-color='success' data-off-color='danger' data-size='small' value='rsvp_wedding'>Wedding</input>\
+    <input type='checkbox' name='rsvp_reception' data-on-text='Y' data-off-text='N' data-on-color='success' data-off-color='danger' data-size='small' value='rsvp_reception'>Reception</input> \
     <select name='rsvp_diet' id='rsvp_diet' class='rsvp_diet'> \
       <option value='none'>Not Applicable</option> \
       <option value='veggie'>Vegetarian</option> \
@@ -15,7 +16,7 @@ var nameForm = "\
     </select> \
     <input id='rsvp_other_diet' class='rsvp_other_diet' name='rsvp_other_diet' type='text' placeholder='Other Diet' size='8' /> \
 </div>\
-"
+";
 
 $("#rsvpForm").hide();
 
@@ -40,8 +41,11 @@ function get_family() {
   ref.orderByChild("full_name").equalTo(name).limitToLast(1).once("value", function(snapshot) {
     if (snapshot.numChildren() == 0) {
       console.log("user not found");
+      $("#rsvpSuccessAlert").hide();
+      $("#rsvpUserNotFound").show(400);
     }
     else {
+      $("#rsvpUserNotFound").hide();
       var postalcode = 0;
       $.each( snapshot.val(), function( index, value ) {
         if (value) {
@@ -65,6 +69,8 @@ function get_family() {
           }
         });
         setDietaryList();
+        $("[name='rsvp_wedding']").bootstrapSwitch();
+        $("[name='rsvp_reception']").bootstrapSwitch();
         $("#contactForm").hide(400);
         $("#rsvpForm").show(400);
       });
@@ -114,7 +120,8 @@ function setDietaryList() {
            });
         }
      });
-     $().prepend("<div class='alert alert-success' role='alert'>Success</div>");
+     $("#rsvpUserNotFound").hide();
+     $("#rsvpSuccessAlert").show(400);
     
    });
 };
