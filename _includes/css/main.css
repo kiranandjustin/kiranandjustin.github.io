@@ -160,7 +160,7 @@ header .intro-text .skills {
 #lookup_rsvp_in, .rsvp_other_diet {
   font-size: 1.35em;
   font-family: Copperplate, "Copperplate Gothic Light", fantasy;
-  word-spacing: 10px
+  word-spacing: 5px
 }
 
 .img-circular {
@@ -226,6 +226,12 @@ section.success {
    -moz-border-radius: 0;
 }
 
+#venuetable a {
+        text-decoration: none;
+        color:inherit;
+    }
+
+
 @media(max-width:767px) {
     section {
         padding: 50px 0;
@@ -234,6 +240,11 @@ section.success {
     section.first {
         padding-top: 75px;
     }
+
+    #venuetable td.googlemap {
+        display:none;
+    }
+
 }
 
 #portfolio .portfolio-item {
