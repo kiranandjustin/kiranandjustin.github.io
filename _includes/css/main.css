@@ -6,6 +6,9 @@
 
 body {
     overflow-x: hidden;
+    background-color: #000;
+    /*background-color: #{{ site.color.secondary-dark }};*/
+
 }
 
 p {
@@ -150,17 +153,24 @@ header .intro-text .skills {
 
 #rsvpForm {
 /*  display: none;*/
+color:#fff;
 }
 
+select.rsvp_diet 
+{
+    background-color:#000;
+}
 #lookup_info, #firstname, #lastname, #lookup_names {
   font-size: 1.5em;
   font-family: Copperplate, "Copperplate Gothic Light", fantasy;
   word-spacing: 2px
+  color: #fff;
 }
 #lookup_rsvp_in, .rsvp_other_diet {
   font-size: 1.35em;
   font-family: Copperplate, "Copperplate Gothic Light", fantasy;
   word-spacing: 5px
+  color: #fff;
 }
 
 .img-circular {
@@ -192,6 +202,8 @@ header .intro-text .skills {
 .navbar-inverse {
     border: 0;
     background-color: #000;
+    /*background-color: #{{ site.color.secondary-dark }};*/
+
 }
 
 section {
@@ -207,6 +219,12 @@ section.success {
     color: #fff;
     background-image: url('../../img/bg.jpg');
     background-repeat: repeat;
+    
+}
+section.alternate {
+    color: #fff;
+    background-color: #000;
+    /*background-color: #{{ site.color.secondary-dark }};*/
     
 }
 .alert.alert-success {
@@ -341,6 +359,7 @@ section.success {
     background: 0 0;
     box-shadow: none!important;
     resize: none;
+    color: #fff;
 }
 
 .floating-label-form-group label {
