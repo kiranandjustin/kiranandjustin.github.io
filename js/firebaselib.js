@@ -5,8 +5,8 @@ var l = " ";
 var nameForm = "\
 <div id='lookup_rsvp_in'  class='form-group controls'> \
     <div id='lookup_names'>Pratik Rathod</div>\
-    <input type='checkbox' name='rsvp_wedding' data-animate='false' data-handle-width='30' data-on-text='Yes' data-off-text='No' data-on-color='success' data-off-color='danger' data-size='small' value='rsvp_wedding'> Wedding</input>\
-    <input type='checkbox' name='rsvp_reception' data-animate='false' data-handle-width='30' data-on-text='Yes' data-off-text='No' data-on-color='success' data-off-color='danger' data-size='small' value='rsvp_reception'> Reception</input> \
+    <input type='checkbox' name='rsvp_wedding' data-animate='false' data-handle-width='30' data-on-text='Yes' data-off-text='No' data-on-color='success' data-off-color='danger' data-size='small' value='rsvp_wedding'>Wedding</input>\
+    <input type='checkbox' name='rsvp_reception' data-animate='false' data-handle-width='30' data-on-text='Yes' data-off-text='No' data-on-color='success' data-off-color='danger' data-size='small' value='rsvp_reception'>Reception</input> \
     <select name='rsvp_diet' id='rsvp_diet' class='rsvp_diet'> \
       <option value='none'>Not Applicable</option> \
       <option value='veggie'>Vegetarian</option> \
@@ -62,7 +62,7 @@ function get_family() {
           if (person) {
             var formhtml = $.parseHTML(nameForm);
             var name = person.full_name;
-            if (person.type === "guest") { name += " (Guest)"; }
+            if (person.type === "Guest") { name += " (Guest)"; }
             $(formhtml).find('#lookup_names').text(name);
             family[name] = index; // save key to global variable.
             $('#rsvpForm .lookup_info').append($(formhtml));
