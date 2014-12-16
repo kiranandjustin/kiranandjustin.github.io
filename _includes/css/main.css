@@ -173,6 +173,12 @@ select.rsvp_diet
   color: #fff;
 }
 
+input.rsvp_other_diet {
+
+  background-color : #000; 
+
+}
+
 .img-circular {
   border-radius: 173px;
    -webkit-border-radius: 173px;
