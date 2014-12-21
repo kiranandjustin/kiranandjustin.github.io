@@ -5,8 +5,8 @@ var l = " ";
 var nameForm = "\
 <div id='lookup_rsvp_in'  class='form-group controls'> \
     <div id='lookup_names'>Pratik Rathod</div>\
-    <input type='checkbox' name='rsvp_wedding' data-animate='false' data-handle-width='25' data-on-text='Yes' data-off-text='No' data-on-color='success' data-off-color='danger' data-size='small' value='rsvp_wedding'>Wedding</input>\
-    <input type='checkbox' name='rsvp_reception' data-animate='false' data-handle-width='25' data-on-text='Yes' data-off-text='No' data-on-color='success' data-off-color='danger' data-size='small' value='rsvp_reception'>Reception</input> \
+    <input id='weddingRSVP' type='checkbox' name='rsvp_wedding' data-animate='false' data-handle-width='25' data-on-text='Yes' data-off-text='No' data-on-color='success' data-off-color='warning' data-size='small' value='rsvp_wedding'>Wedding</input>\
+    <input id='receptionRSVP' type='checkbox' name='rsvp_reception' data-animate='false' data-handle-width='25' data-on-text='Yes' data-off-text='No' data-on-color='success' data-off-color='warning' data-size='small' value='rsvp_reception'>Reception</input> \
     <select name='rsvp_diet' id='rsvp_diet' class='rsvp_diet'> \
       <option selected disabled>Dietary Restrictions</option> \
       <option value='none'>None</option> \
@@ -63,8 +63,22 @@ function get_family() {
           if (person) {
             var formhtml = $.parseHTML(nameForm);
             var name = person.full_name;
+            var weddingRSVP = person.rsvp_wedding;
+            var receptionRSVP = person.rsvp_reception;
+            var diet = person.rsvp_diet;
             if (person.type === "Guest") { name += " (Guest)"; }
             $(formhtml).find('#lookup_names').text(name);
+            $(formhtml).find('#weddingRSVP').prop('checked', weddingRSVP);
+            $(formhtml).find('#receptionRSVP').prop('checked', receptionRSVP);
+            if (['none', 'veggie', 'halal', 'nobeef'].indexOf(diet) < 0) {
+              $(formhtml).find('#rsvp_diet').val('other');
+              $(formhtml).find('#rsvp_other_diet').val(person.rsvp_diet);
+              $(formhtml).find('#rsvp_other_diet').show();
+            }
+            else {
+              $(formhtml).find('#rsvp_diet').val(diet);  
+              $(formhtml).find('#rsvp_other_diet').hide();
+            }
             family[name] = index; // save key to global variable.
             $('#rsvpForm .lookup_info').append($(formhtml));
           }
@@ -88,16 +102,6 @@ $(document).ready(function(){
 
 // Form function
 function setDietaryList() {
-   //initially hide the textbox
-   $(".rsvp_other_diet").hide();
-   $('.rsvp_diet').change(function() {
-     if($(this).find('option:selected').val() === "other"){ 
-       $(this).next().show();
-     }else{
-       $(this).next().hide();
-     }
-   });
-   
    
    $('#rsvpForm').submit(function() {
      event.preventDefault();

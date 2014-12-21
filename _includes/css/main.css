@@ -107,6 +107,21 @@ header .intro-text .name {
     font-weight: 700;
 }
 
+.email {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+.email a {
+    color: white;
+    display:inline-block;
+    background-color:#6C161A; 
+    padding: 2px;
+    border: solid 2px;
+    border-color: #6C161A;
+    border-radius: 3px;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+}
 header .intro-text .skills {
     font-size: 1.25em;
     font-weight: 300;
