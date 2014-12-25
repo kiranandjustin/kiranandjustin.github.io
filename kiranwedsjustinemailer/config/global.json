@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "_default": {
+            "link": "kiranwedsjustin"
+        }, 
+        "kiranwedsjustin": {
+            "applicationId": "lxPuvmfJt065TVf1BqvRgI76xXsNR6aOE2gOVSYF", 
+            "masterKey": "zgtKzMUh8sA3Wa30ZEWJKfziMYuLk8PmnaQLiFVk"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.2"
+    }
+}

@@ -1,6 +1,14 @@
 var ref = new Firebase("https://sweltering-inferno-5630.firebaseio.com/invite_list");
 
 
+$(document).ready(function(){
+ 
+  // Initialize Parse with your Parse application & javascript keys
+  Parse.initialize("lxPuvmfJt065TVf1BqvRgI76xXsNR6aOE2gOVSYF", "LjG0qSmBzySroDtj1C9xA0vPTdakAotjfCl6uSLs");
+ 
+});
+
+
 var l = " ";
 var nameForm = "\
 <div id='lookup_rsvp_in'  class='form-group controls'> \
@@ -123,12 +131,8 @@ function setDietaryList() {
              "rsvp_diet":othersOption.val(),
              "rsvp_complete":true
            });
-
-          // send confirmation email to kiranwedsjustin@gmail.com
-          var url = "https://api.sendgrid.com/api/mail.send.json"
           
           up_person.on("value", function(snapshot) {
-            console.log(snapshot.val());
             var data = {};
             data["to"] = "kiranwedsjustin@gmail.com";
             data["toname"] = "Kiran Weds Justin";
@@ -138,12 +142,17 @@ function setDietaryList() {
             data["api_user"] = "kiranwedsjustin@gmail.com";
             data["api_key"] = "kiranwedsjustin"
 
-            var posting = $.post(url, data);
- 
-            // Put the results in a div
-            posting.done(function( data ) {
-              console.log("confirmation sent: " + data);
+            // Run our Parse Cloud Code and 
+            // pass our 'data' object to it
+            Parse.Cloud.run("sendEmail", data, {
+              success: function(object) {
+                console.log("email confirmation sent");
+              },
+              error: function(object, error) {
+                console.log("email failed: " + error);
+              }
             });
+
           }, function (errorObject) {
             console.log("The confirmation email could not be sent: " + errorObject.code);
           });
