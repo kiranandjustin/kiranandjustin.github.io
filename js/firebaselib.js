@@ -123,6 +123,30 @@ function setDietaryList() {
              "rsvp_diet":othersOption.val(),
              "rsvp_complete":true
            });
+
+          // send confirmation email to kiranwedsjustin@gmail.com
+          var url = "https://api.sendgrid.com/api/mail.send.json"
+          
+          up_person.on("value", function(snapshot) {
+            console.log(snapshot.val());
+            var data = {};
+            data["to"] = "kiranwedsjustin@gmail.com";
+            data["toname"] = "Kiran Weds Justin";
+            data["from"] = "kiranwedsjustin@gmail.com";
+            data["subject"] = "RSVP: " + name;
+            data["text"] = snapshot.val();
+            data["api_user"] = "kiranwedsjustin@gmail.com";
+            data["api_key"] = "kiranwedsjustin"
+
+            var posting = $.post(url, data);
+ 
+            // Put the results in a div
+            posting.done(function( data ) {
+              console.log("confirmation sent: " + data);
+            });
+          }, function (errorObject) {
+            console.log("The confirmation email could not be sent: " + errorObject.code);
+          });
         }
      });
      $("#rsvpUserNotFound").hide();
