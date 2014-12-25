@@ -138,9 +138,7 @@ function setDietaryList() {
             data["toname"] = "Kiran Weds Justin";
             data["from"] = "kiranwedsjustin@gmail.com";
             data["subject"] = "RSVP: " + name;
-            data["text"] = snapshot.val();
-            data["api_user"] = "kiranwedsjustin@gmail.com";
-            data["api_key"] = "kiranwedsjustin"
+            data["text"] = JSON.stringify(snapshot.val(), undefined, 2);
 
             // Run our Parse Cloud Code and 
             // pass our 'data' object to it
