@@ -76,17 +76,27 @@ function get_family() {
             var diet = person.rsvp_diet;
             if (person.type === "Guest") { name += " (Guest)"; }
             $(formhtml).find('#lookup_names').text(name);
-            $(formhtml).find('#weddingRSVP').prop('checked', weddingRSVP);
-            $(formhtml).find('#receptionRSVP').prop('checked', receptionRSVP);
-            if (['none', 'veggie', 'halal', 'nobeef'].indexOf(diet) < 0) {
-              $(formhtml).find('#rsvp_diet').val('other');
-              $(formhtml).find('#rsvp_other_diet').val(person.rsvp_diet);
-              $(formhtml).find('#rsvp_other_diet').show();
+            if (person.rsvp_complete) {
+              $(formhtml).find('#weddingRSVP').prop('checked', weddingRSVP);
+              $(formhtml).find('#receptionRSVP').prop('checked', receptionRSVP);  
+              if (['none', 'veggie', 'halal', 'nobeef'].indexOf(diet) < 0 && person.rsvp_complete) {
+                $(formhtml).find('#rsvp_diet').val('other');
+                $(formhtml).find('#rsvp_other_diet').val(person.rsvp_diet);
+                $(formhtml).find('#rsvp_other_diet').show();
+              }
+              else {
+                $(formhtml).find('#rsvp_diet').val(diet);  
+                $(formhtml).find('#rsvp_other_diet').hide();
+              }
             }
             else {
-              $(formhtml).find('#rsvp_diet').val(diet);  
-              $(formhtml).find('#rsvp_other_diet').hide();
+              $(formhtml).find('#weddingRSVP').prop('checked', true);
+              $(formhtml).find('#receptionRSVP').prop('checked', true);
+              // $(formhtml).find('#rsvp_diet').val(diet);  
+                $(formhtml).find('#rsvp_other_diet').hide();
             }
+            
+            
             family[name] = index; // save key to global variable.
             $('#rsvpForm .lookup_info').append($(formhtml));
           }
