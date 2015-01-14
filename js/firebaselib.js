@@ -79,7 +79,7 @@ function get_family() {
             if (person.rsvp_complete) {
               $(formhtml).find('#weddingRSVP').prop('checked', weddingRSVP);
               $(formhtml).find('#receptionRSVP').prop('checked', receptionRSVP);  
-              if (['none', 'veggie', 'halal', 'nobeef'].indexOf(diet) < 0 && person.rsvp_complete) {
+              if (['none', 'veggie', 'halal', 'nobeef'].indexOf(diet) < 0) {
                 $(formhtml).find('#rsvp_diet').val('other');
                 $(formhtml).find('#rsvp_other_diet').val(person.rsvp_diet);
                 $(formhtml).find('#rsvp_other_diet').show();
@@ -96,7 +96,18 @@ function get_family() {
                 $(formhtml).find('#rsvp_other_diet').hide();
             }
             
-            
+            $(formhtml).find('#rsvp_diet').on('change', function (e) {
+              console.log("select change");
+              var valueSelected = $(formhtml).find('#rsvp_diet').val();
+              if (valueSelected == "other") {
+                $(formhtml).find('#rsvp_other_diet').show();
+              }
+              else {
+                $(formhtml).find('#rsvp_other_diet').hide(); 
+              }
+            });
+
+
             family[name] = index; // save key to global variable.
             $('#rsvpForm .lookup_info').append($(formhtml));
           }
@@ -114,6 +125,16 @@ function get_family() {
 $(document).ready(function(){
     $(".close").click(function(){
         $(".alert").alert();
+    });
+
+    $('select').on('change', function (e) {
+      console.log("select change");
+      // var optionSelected = $("option:selected", this);
+      // var valueSelected = this.value;
+      // if (valueSelected == "other") {
+      //   $('#rsvp_other_diet').show();
+      // }
+      
     });
 });
 
