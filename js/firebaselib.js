@@ -57,6 +57,7 @@ function get_family() {
       $("#rsvpUserNotFound").hide();
       var postalcode = 0;
       $.each( snapshot.val(), function( index, value ) {
+        console.log(value);
         if (value) {
           postalcode = value.postal_code;
           return false;
@@ -189,6 +190,6 @@ function setDietaryList() {
      });
      $("#rsvpUserNotFound").hide();
      $("#rsvpSuccessAlert").show(400);
-    
+     alert("Thank you - your RSVP has been submitted");
    });
 };
