@@ -1,6 +1,6 @@
 Parse.Cloud.define("sendEmail", function(request, response) {
   var sendgrid = require("sendgrid");
-  sendgrid.initialize("kiranwedsjustin@gmail.com", "kiranwedsjustin");
+  sendgrid.initialize("asdf@gmail.com", "asdf");
  
   var name = request.params.name;
   var to = request.params.to;
